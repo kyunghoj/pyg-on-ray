@@ -2,16 +2,7 @@
 
 ## Installation
 
-### Installing Ray on Local Machine
-
-하나의 서버 노드에서 여러 개의 CPU를 활용하려는 경우, 
-
-```
-pip install -U "ray[default]"
-
-# If you don't want Ray Dashboard or Cluster Launcher, install Ray with minimal dependencies instead.
-# pip install -U "ray"
-```
+### Installing Ray on Local Machine (macOS)
 
 On Mac with Apple Silicon, you should use miniforge:
 Please see [M1 Mac (Apple Silicon) Support](https://docs.ray.io/en/latest/ray-overview/installation.html#m1-mac-apple-silicon-support).
@@ -36,6 +27,16 @@ conda activate rayenv
 
 ```
 pip install -U "ray[default]"
+```
+
+### Installing Ray on Local Machine (Linux)
+
+Linux (x86_64) 의 경우, 
+```
+pip install -U "ray[default]"
+
+# If you don't want Ray Dashboard or Cluster Launcher, install Ray with minimal dependencies instead.
+# pip install -U "ray"
 ```
 
 (Note that you don't need to install PyTorch Geometric. Dependencies will be handled by Ray's Runtime environment. Please see `submit_job.py`.)
@@ -64,16 +65,16 @@ On each of the other nodes, run the following command to connect to the head nod
 On macOS:
 
 ```
-RAY_ENABLE_WINDOWS_OR_OSX_CLUSTER=1 ray start --address=<head-node-address:26379>
+RAY_ENABLE_WINDOWS_OR_OSX_CLUSTER=1 ray start --address=<head-node-address>:26379
 ```
 
 On Linux:
 
 ```
-ray start --address=<head-node-address:26379>
+ray start --address=<head-node-address>:26379
 ```
 
-You can see Ray Web Console at http://<head-node-address:8265>.
+You can see Ray Web Console at http://<head-node-address>:8265.
 
 ## Run
 
@@ -82,5 +83,5 @@ conda activate rayenv
 python submit_job.py
 ```
 
-To see the job status, go to http://127.0.0.1:8265 on you web browser.
+To see the job status, go to http://<head-node-address>:8265 on you web browser.
 
