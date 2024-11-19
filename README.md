@@ -74,7 +74,7 @@ On Linux:
 ray start --address=<head-node-address>:26379
 ```
 
-You can see Ray Web Console at http://<head-node-address>:8265.
+You can see Ray Web Console at `http://<head-node-address>:8265`.
 
 ## Run
 
@@ -83,5 +83,5 @@ conda activate rayenv
 python submit_job.py
 ```
 
-To see the job status, go to http://<head-node-address>:8265 on you web browser.
+To see the job status, go to `http://<head-node-address>:8265` on you web browser.
 
